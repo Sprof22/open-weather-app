@@ -3,12 +3,12 @@ import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import Search from './components/Search/Search';
 
 function App() {
-  const handleSearchChange = (searcData)=> {
-    console.log(searcData);
+  const handleSearchChange = (searchData) => {
+    console.log(searchData)
   }
-  return (
+  return ( 
     <div className="container">
-      <Search onSearchChange={handleSearchChange}/>
+      <Search searchInputChange={handleSearchChange}/>
       <CurrentWeather />
     </div>
   );
