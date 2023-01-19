@@ -1,14 +1,14 @@
-import './App.css';
-import CurrentWeather from './components/CurrentWeather/CurrentWeather';
-import Search from './components/Search/Search';
+import "./App.css";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import Search from "./components/Search/Search";
 
 function App() {
-  const handleSearchChange = (searchData) => {
-    console.log(searchData)
-  }
-  return ( 
+  const handleSearchInputChange = (searchData) => {
+    console.log(searchData);
+  };
+  return (
     <div className="container">
-      <Search searchInputChange={handleSearchChange}/>
+      <Search onSearchChange={handleSearchInputChange} />
       <CurrentWeather />
     </div>
   );
