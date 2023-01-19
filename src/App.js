@@ -4,7 +4,7 @@ import Search from "./components/Search/Search";
 
 function App() {
   const handleSearchInputChange = (searchData) => {
-    console.log(searchData);
+      console.log(searchData);
   };
   return (
     <div className="container">
