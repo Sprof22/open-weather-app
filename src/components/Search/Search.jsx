@@ -10,14 +10,14 @@ const Search = ({onSearchChange}) => {
   }
 
   const loadOptions = (inputValue) => {
-    fetch(`${RAPID_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, RapidAPIOptions)
+  return fetch(`${RAPID_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, RapidAPIOptions)
 	.then(response => response.json())
 	.then(response => {
     return {
       options: response.data.map(city => {
-        return{
+        return {
           value: `${city.latitude} ${city.longitude}` ,
-          label: `${city.name}, (${city.country})`,
+          label: `${city.name}, (${city.countryCode})`,
         }
       })
     }
