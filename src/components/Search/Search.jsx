@@ -5,13 +5,9 @@ import { RapidAPIOptions, RAPID_API_URL } from "../../api";
 const Search = () => {
  
   return (
-    <AsyncPaginate
-      placeholder={"Search for City"}
-      debounceTimeout={600}
-      onChange={handleInputChange}
-      value={search}
-      loadOptions={loadOptions}
-    />
+    <div>
+      Search COmoponent
+    </div>
   );
 };
 
