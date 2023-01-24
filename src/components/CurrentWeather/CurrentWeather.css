@@ -1,0 +1,69 @@
+.box {
+  background: peachpuff;
+  margin: 20px auto;
+  margin-top: 50px;
+  height: 70vh;
+  padding: 3%;
+  border-radius: 2px;
+}
+
+.parent {
+  background: palegreen;
+  border-radius: 8px;
+  height: 85%;
+  width: 92%;
+  padding: 40px;
+}
+
+.display {
+  display: flex;
+  height: 60%;
+  background: transparent;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: blue;
+  font-size: 80px;
+}
+
+.locale {
+  font-size: 30px;
+  color: black;
+}
+
+.third {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: blue;
+}
+
+.hum {
+  text-align: left;
+  color: black;
+  align-items: flex-start;
+  width: 70px;
+}
+
+.secondary{
+    background: white;
+    height: 28%;
+    margin: 30px;
+    padding: 20px;
+    box-shadow: 10px 10px 8px #888888;
+}
