@@ -5,6 +5,4 @@ export const RapidAPIOptions = {
 		'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
 	}
 };
-
-export const RAPID_API_URL ='https://wft-geo-db.p.rapidapi.com/v1/geo';
-
+export const RAPID_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo'
