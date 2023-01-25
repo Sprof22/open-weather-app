@@ -1,7 +1,7 @@
 import React from "react";
 import "./CurrentWeather.css";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({data}) => {
   
   return (
     <div className="box">
@@ -9,9 +9,10 @@ const CurrentWeather = () => {
         <div className="display">
           <div className="first">
             <div className="temp">18°C</div>
-            <div className="locale">Jamaica</div>
+            <div className="locale">{data.city}</div>
+            <p className="desc">{data.weather[0].description}</p>
           </div>
-          <div className="circle" style={{background: `blue`}}></div>
+          <div className="circle"  style={{background: 'red'}}  ><img className="picture" src={`icons/${data.weather[0].icon}.png`} alt="img"/></div>
           <div className="third">
             <div className="hum">26%</div>
             <div className="hum">16km/h</div>
