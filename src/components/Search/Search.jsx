@@ -15,7 +15,16 @@ const Search = ({ onSearchChange }) => {
       RapidAPIOptions
     )
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => {
+        return {
+          options: response.data.map(city => {
+            return {
+              value:`${city.latitude} ${city.longitude}` ,
+              label:`${city.name}, (${city.country})` ,
+            }
+          })
+        }
+      })
       .catch((err) => console.error(err));
   };
   return (
