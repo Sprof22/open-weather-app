@@ -5,19 +5,26 @@ import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import Search from "./components/Search/Search";
 
 function App() {
-  // const [currentWeather, forecastWeather] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecastWeather, setForecastWeather] = useState(null);
+
 
   const handleSearchInput = (searchData) => {
     const [lat, lon] = searchData.value.split(' ')
-    const currentWeatherFetch = fetch(`${OPEN_WEATHER_URL}/weather?lat={lat}&lon={lon}&appid=${OPEN_WEATHER_KEY}`)
-    const forecastWeatherFetch = fetch(`${OPEN_WEATHER_URL}/forecast?lat={lat}&lon={lon}&appid=${OPEN_WEATHER_KEY}`)
+    const currentWeatherFetch = fetch(`${OPEN_WEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}`)
+    const forecastWeatherFetch = fetch(`${OPEN_WEATHER_URL}/forecast?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}`)
 
-    Promise.all([currentWeatherFetch, forecastWeatherFetch]).then
+    Promise.all([currentWeatherFetch, forecastWeatherFetch]).then( async (response) => {
+      const currentWeatherResponse = await response[0].json()
+      const forecastWeatherResponse = await response[1].json()
+
+      setCurrentWeather(currentWeatherResponse)
+      setForecastWeather(forecastWeatherResponse)
+    }).catch(err => console.log(err))
   }
-
-
-
  
+  console.log(currentWeather)
+  console.log(forecastWeather)
   return (
     <div className="container">
       <Search onSearchChange={handleSearchInput} />

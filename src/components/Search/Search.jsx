@@ -12,7 +12,10 @@ const Search = ({ onSearchChange }) => {
   };
 
   const loadOptions = (inputValue) => {
-    return fetch(`${GEO_DB_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, GeoDbApiOptions)
+    return fetch(
+      `${GEO_DB_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      GeoDbApiOptions
+    )
       .then((response) => response.json())
       .then((response) => {return {
         options: response.data.map(city => {
