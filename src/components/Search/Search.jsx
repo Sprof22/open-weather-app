@@ -17,14 +17,16 @@ const Search = ({ onSearchChange }) => {
       GeoDbApiOptions
     )
       .then((response) => response.json())
-      .then((response) => {return {
-        options: response.data.map(city => {
-          return {
-            value: `${city.latitude} ${city.longitude}`,
-            label:`${city.name}, (${city.country})`
-          }
-        })
-      }})
+      .then((response) => {
+        return {
+          options: response.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, (${city.country})`,
+            };
+          }),
+        };
+      })
       .catch((err) => console.error(err));
   };
 

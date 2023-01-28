@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import cloud from "./cloud.jpg";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ data }) => {
+  console.log(data, 'this is the data')
+
+  const [, kontry] = data.city.split(', ')
+
   return (
-    <div>CurrentWeather</div>
-  )
-}
+    <div>
+      <img src={cloud} alt="cloud" width={300} height={200} />
+      <h1>{data.city}</h1>
+      <i>
+        <h2>{kontry}</h2>
+        <p>16deg</p>
+        <p>cloudy</p>
+      </i>
+    </div>
+  );
+};
 
-export default CurrentWeather
+export default CurrentWeather;

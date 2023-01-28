@@ -18,17 +18,18 @@ function App() {
       const currentWeatherResponse = await response[0].json()
       const forecastWeatherResponse = await response[1].json()
 
-      setCurrentWeather(currentWeatherResponse)
-      setForecastWeather(forecastWeatherResponse)
+      setCurrentWeather({city: searchData.label, ...currentWeatherResponse})
+      setForecastWeather({city: searchData.label, ...forecastWeatherResponse})
     }).catch(err => console.log(err))
   }
  
   console.log(currentWeather)
   console.log(forecastWeather)
+
   return (
     <div className="container">
       <Search onSearchChange={handleSearchInput} />
-      <CurrentWeather />
+      {currentWeather&&<CurrentWeather data={currentWeather}/>}
     </div>
   );
 }
