@@ -14,12 +14,14 @@ const Search = ({ onSearchChange }) => {
   const loadOptions = (inputValue) => {
     return fetch(`${GEO_DB_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, GeoDbApiOptions)
       .then((response) => response.json())
-      .then((response) => {response.data.map(city => {
-        return {
-          value: `${city.latitude},  ${city.longitude}`,
-          label: `${city.name}, ${city.country}`
-        }
-      })})
+      .then((response) => {return {
+        options: response.data.map(city => {
+          return {
+            value: `${city.latitude} ${city.longitude}`,
+            label:`${city.name}, (${city.country})`
+          }
+        })
+      }})
       .catch((err) => console.error(err));
   };
 
