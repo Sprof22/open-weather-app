@@ -13,7 +13,7 @@ const CurrentWeather = ({ data }) => {
       <i>
         <h2>{kontry}</h2>
         <p>16deg</p>
-        <p>cloudy</p>
+        <p>{data.weather[0].description}</p>
       </i>
     </div>
   );
