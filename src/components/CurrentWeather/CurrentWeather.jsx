@@ -12,8 +12,8 @@ const CurrentWeather = ({ data }) => {
       <h1>{data.city}</h1>
       <i>
         <h2>{kontry}</h2>
-        <p>16deg</p>
-        <p>cloudy</p>
+        <p>{Math.floor(data.main.temp)} deg</p>
+        <p>{data.weather[0].description}</p>
       </i>
     </div>
   );
