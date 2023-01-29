@@ -30,6 +30,7 @@ function App() {
     <div className="container">
       <Search onSearchChange={handleSearchInput} />
       {currentWeather&&<CurrentWeather data={currentWeather}/>}
+      {forcastWeather&&<CurrentWeather data={currentWeather}/>}
     </div>
   );
 }
