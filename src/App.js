@@ -2,6 +2,7 @@ import { useState } from "react";
 import { OPEN_WEATHER_KEY, OPEN_WEATHER_URL } from "./api";
 import "./App.css";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import ForecastWeather from "./components/ForecastWeather";
 import Search from "./components/Search/Search";
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
   return (
     <div className="container">
       <Search onSearchChange={handleSearchInput} />
-      {currentWeather&&<CurrentWeather data={currentWeather}/>}
-      {forcastWeather&&<CurrentWeather data={currentWeather}/>}
+      {currentWeather &&<CurrentWeather data={currentWeather}/>}
+      {forecastWeather &&<ForecastWeather data={forecastWeather}/>}
     </div>
   );
 }
