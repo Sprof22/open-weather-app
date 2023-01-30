@@ -19,10 +19,10 @@ const Search = ({ onSearchChange }) => {
       .then((response) => response.json())
       .then((response) => {
         return {
-          options: response.data.map((money) => {
+          options: response.data.map((city) => {
             return {
-              value: `${money.latitude} ${money.longitude}`,
-              label: `${money.name}, (${money.country})`,
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, (${city.country})`,
             };
           }),
         };
