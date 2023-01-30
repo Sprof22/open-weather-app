@@ -2,6 +2,7 @@ import { useState } from "react";
 import { OPEN_WEATHER_KEY, OPEN_WEATHER_URL } from "./api";
 import "./App.css";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import ForecastWeather from "./components/ForecastWeather/ForecastWeather";
 import Search from "./components/Search/Search";
 
 function App() {
@@ -11,10 +12,10 @@ function App() {
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(
-      `${OPEN_WEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}`
-    );
-    const forecastWeatherFetch = fetch(
-      `${OPEN_WEATHER_URL}/forecast?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}`
+      `${OPEN_WEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=metric`
+      );
+      const forecastWeatherFetch = fetch(
+      `${OPEN_WEATHER_URL}/forecast?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch, forecastWeatherFetch])
@@ -27,13 +28,13 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  console.log(currentWeather);
-  console.log(forecastWeather);
+  console.log(currentWeather, "this is current");
+  console.log(forecastWeather, "this is forecast");
   return (
     <div className="container">
       <Search onSearchChange={handleSearchInputChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
-      {foreCastWeather && <ForecastWeather data={forecastWeather} />}
+      {forecastWeather && <ForecastWeather data={forecastWeather} />}
     </div>
   );
 }
