@@ -6,7 +6,14 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import "./forecast.css";
+import "./ForecastWeather.css";
+
+
+const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const dayInAweek = new Date().getDay()
+// console.log(dayInAweek)
+const forecastDays = WEEK_DAYS.slice(dayInAweek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAweek))
+console.log(forecastDays)
 
 const ForecastWeather = ({ data }) => {
   return (
@@ -18,7 +25,10 @@ const ForecastWeather = ({ data }) => {
             <AccordionItemHeading>
               <AccordionItemButton>
                 <div className="daily-item">
-                <img className="icon-" src={`./icons/${item.weather[0].icon}.png`} alt="cloud"/>
+                  <img className="icon-small" src={`./icons/${item.weather[0].icon}.png`} alt="cloud"/>
+                  <label htmlFor="" className="day">
+                    {forecastDays[index]}
+                  </label>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
