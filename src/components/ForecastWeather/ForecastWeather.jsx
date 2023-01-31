@@ -13,10 +13,12 @@ const ForecastWeather = ({ data }) => {
       <label className="title">Daily</label>
       <Accordion allowZeroExpanded>
         {data.list.slice(0, 7).map((item, index) => (
-          <AccordionItem>
+          <AccordionItem key={index}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                What harsh truths do you prefer to ignore?
+                <div className="daily-item">
+                <img src={`./icons/${item.weather[0].icon}.png`} alt="cloud"/>
+                </div>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
