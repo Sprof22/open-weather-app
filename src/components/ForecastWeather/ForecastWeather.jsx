@@ -6,6 +6,7 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import "./forecast.css";
 
 const ForecastWeather = ({ data }) => {
   return (
