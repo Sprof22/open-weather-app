@@ -17,16 +17,13 @@ const ForecastWeather = ({ data }) => {
             <AccordionItemHeading>
               <AccordionItemButton>
                 <div className="daily-item">
-                <img src={`./icons/${item.weather[0].icon}.png`} alt="cloud"/>
+                <img className="icon-" src={`./icons/${item.weather[0].icon}.png`} alt="cloud"/>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <p>
-                Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat
-                occaecat ut occaecat consequat est minim minim esse tempor
-                laborum consequat esse adipisicing eu reprehenderit enim.
-              </p>
+              <p>{Math.floor(item.main.temp)}degs</p>
+              <p>{item.weather[0].description}</p>
             </AccordionItemPanel>
           </AccordionItem>
         ))}
